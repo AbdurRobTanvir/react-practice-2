@@ -7,7 +7,7 @@
   display: table;
 }
 .container {
-  width: 1100px;
+  width: 375px;
   margin: 0 auto;
 }
 .title {
@@ -18,12 +18,44 @@
 }
 .form-element {
   margin: 5px 0;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid black;
+}
+.form-element-half{
+  margin: 5px 0;
+  width: 175px;
   border: 0;
   border-bottom: 1px solid black;
 }
 .next-button{
   background-color: #4c4db5;
   color: #ffffff;
-  padding: 5px 67px;
+  padding: 5px 167px;
   margin-top: 10px;
+}
+.previous-submit-button{
+  background-color: #4c4db5;
+  color: #ffffff;
+  padding: 5px 35px;
+  margin-top: 10px;
+}
+
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}
+.output{
+  text-align: left;
+}
+.output-title{
+  font-weight:bold; 
+  margin-top: 10px;
+}
+.done{
+  font-weight: bold; 
+  font-size: 40px;
+  margin-top: 20px;
 }

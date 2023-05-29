@@ -1,14 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
-import SignUp from "./components/SignUp";
 import "./assets/myStyles.css";
+import SignUpForm from "./components/SignUpForm";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <SignUp />
+      <SignUpForm />
     </div>
   );
-}
+};
 
 export default App;
