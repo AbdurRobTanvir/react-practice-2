@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Output from "./Output";
 
 const SignUpForm = () => {
-
   const [values, setValues] = useState({
     emailAddress: "",
     userName: "",
@@ -12,20 +11,17 @@ const SignUpForm = () => {
     country: "",
     education: "",
   });
-  const [steps, setSteps] = useState({
-    firstPage: false,
-    secondPage: false,
-    thirdPage: false,
-    fourthPage: false,
-  });
+  const [step, setStep] = useState(0)
 
   return (
     <div className="container">
-      {!steps.thirdPage && (
+      {
+        step < 2 &&
         <div>
           <div className="title">Sign Up</div>
           <from>
-            {!steps.firstPage && (
+            {
+              step === 0 &&
               <>
                 <div>
                   <input
@@ -62,13 +58,14 @@ const SignUpForm = () => {
                 </div>
                 <button
                   className="next-button"
-                  onClick={() => setSteps({ ...steps, firstPage: true })}
+                  onClick={() => setStep(step + 1)}
                 >
                   NEXT
                 </button>
               </>
-            )}
-            {steps.firstPage && (
+            }
+            {
+              step === 1 &&
               <>
                 <div className="clearfix">
                   <div className="float-left">
@@ -80,7 +77,8 @@ const SignUpForm = () => {
                       onChange={(event) =>
                         setValues({ ...values, firstName: event.target.value })
                       }
-                    ></input>
+                    >
+                    </input>
                   </div>
                   <div className="float-right">
                     <input
@@ -119,29 +117,26 @@ const SignUpForm = () => {
                 <div className="clearfix">
                   <button
                     className="previous-submit-button float-left"
-                    onClick={() => setSteps({ ...steps, firstPage: false })}
+                    onClick={() => setStep(step - 1)}
                   >
                     PREVIOUS
                   </button>
                   <button
                     className="previous-submit-button float-right"
-                    onClick={() => setSteps({ ...steps, thirdPage: true })}
+                    onClick={() => setStep(step + 1)}
                   >
                     NEXT
                   </button>
                 </div>
               </>
-            )}
+            }
           </from>
         </div>
-      )}
-      {steps.thirdPage && (
-        <Output
-          values={values}
-          setSteps={setSteps}
-          steps={steps}
-        />
-      )}
+      }
+      {
+        step >= 2 &&
+        <Output values={values} setStep={setStep} step={step} />
+      }
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React from "react";
 
-const Output = ({ values, steps, setSteps }) => {
+const Output = ({ values, step, setStep }) => {
 
   return (
     <>
-      {!steps.fourthPage && (
+      {step < 3 &&
         <>
           <div className="output">
             <div className="output-title">Email</div>
@@ -25,21 +25,24 @@ const Output = ({ values, steps, setSteps }) => {
             <button
               className="previous-submit-button float-left"
               onClick={() =>
-                setSteps({ ...steps, seconndPage: false, thirdPage: false })
+                setStep(step - 1)
               }
             >
               PREVIOUS
             </button>
             <button
               className="previous-submit-button float-right"
-              onClick={() => setSteps({ ...steps, fourthPage: true })}
+              onClick={() => setStep(step + 1)}
             >
               CONFIRM & CONTINUE
             </button>
           </div>
         </>
-      )}
-      {steps.fourthPage && <div className="done">You are done!</div>}
+      }
+      {
+        step === 3 &&
+        <div className="done">You are done!</div>
+      }
     </>
   );
 };
