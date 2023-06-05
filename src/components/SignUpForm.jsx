@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Output from "./Output";
-
+import InputComponent from "./InputComponent";
 const SignUpForm = () => {
+
   const [values, setValues] = useState({
     emailAddress: "",
     userName: "",
@@ -11,7 +12,7 @@ const SignUpForm = () => {
     country: "",
     education: "",
   });
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState(0);
 
   return (
     <div className="container">
@@ -24,37 +25,34 @@ const SignUpForm = () => {
               step === 0 &&
               <>
                 <div>
-                  <input
-                    className="form-element"
+                  <InputComponent
                     type="email"
                     placeholder="Email Address"
-                    value={values.emailAddress}
-                    onChange={(event) =>
-                      setValues({ ...values, emailAddress: event.target.value })
-                    }
-                  ></input>
+                    className="form-element"
+                    values={values}
+                    setValues={setValues}
+                    name="emailAddress"
+                  />
                 </div>
                 <div>
-                  <input
-                    className="form-element"
+                  <InputComponent
                     type="text"
                     placeholder="Username"
-                    value={values.userName}
-                    onChange={(event) =>
-                      setValues({ ...values, userName: event.target.value })
-                    }
-                  ></input>
+                    className="form-element"
+                    values={values}
+                    setValues={setValues}
+                    name="userName"
+                  />
                 </div>
                 <div>
-                  <input
-                    className="form-element"
+                  <InputComponent
                     type="password"
                     placeholder="Password"
-                    value={values.password}
-                    onChange={(event) =>
-                      setValues({ ...values, password: event.target.value })
-                    }
-                  ></input>
+                    className="form-element"
+                    values={values}
+                    setValues={setValues}
+                    name="password"
+                  />
                 </div>
                 <button
                   className="next-button"
@@ -69,50 +67,45 @@ const SignUpForm = () => {
               <>
                 <div className="clearfix">
                   <div className="float-left">
-                    <input
-                      className="form-element-half"
+                    <InputComponent
                       type="text"
                       placeholder="First Name"
-                      value={values.firstName}
-                      onChange={(event) =>
-                        setValues({ ...values, firstName: event.target.value })
-                      }
-                    >
-                    </input>
+                      className="form-element-half"
+                      values={values}
+                      setValues={setValues}
+                      name="firstName"
+                    />
                   </div>
                   <div className="float-right">
-                    <input
-                      className="form-element-half"
+                    <InputComponent
                       type="text"
                       placeholder="Last Name"
-                      value={values.lastName}
-                      onChange={(event) =>
-                        setValues({ ...values, lastName: event.target.value })
-                      }
-                    ></input>
+                      className="form-element-half"
+                      values={values}
+                      setValues={setValues}
+                      name="lastName"
+                    />
                   </div>
                 </div>
                 <div>
-                  <input
-                    className="form-element"
+                  <InputComponent
                     type="text"
                     placeholder="Country of Residence"
-                    value={values.country}
-                    onChange={(event) =>
-                      setValues({ ...values, country: event.target.value })
-                    }
-                  ></input>
+                    className="form-element"
+                    values={values}
+                    setValues={setValues}
+                    name="country"
+                  />
                 </div>
                 <div>
-                  <input
-                    className="form-element"
+                  <InputComponent
                     type="text"
                     placeholder="Level of Education"
-                    value={values.education}
-                    onChange={(event) =>
-                      setValues({ ...values, education: event.target.value })
-                    }
-                  ></input>
+                    className="form-element"
+                    values={values}
+                    setValues={setValues}
+                    name="education"
+                  />
                 </div>
                 <div className="clearfix">
                   <button
